@@ -137,6 +137,16 @@ p{margin:0 0 18px}
 .fv-list{list-style:none;margin:0 0 14px;padding:0}
 .fv-list li{font-size:16px;line-height:1.75;margin:0 0 4px}
 .fv-closing{font-size:17px;font-weight:700;margin:0 0 16px}
+/* チェックの印つきの3行（第7版） */
+.fv-checks{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:6px}
+.fv-checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:16px;line-height:1.7;font-weight:500}
+.fv-ck{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#ffffff;color:#166534;margin-top:3px}
+.fv-ck svg{width:14px;height:14px}
+/* 初回無料の箱：写真の上でも読める白い小さな箱 */
+.fv-free{align-self:flex-start;max-width:440px;margin:0 0 16px;padding:10px 16px;background:#ffffff;color:#2d3742;border-left:5px solid #166534;border-radius:8px;text-shadow:none;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.fv-free p{margin:0;font-size:16px;line-height:1.6}
+.fv-free-t strong{color:#166534}
+.fv-free .tag{text-shadow:none}
 .fv .ctas{margin:0}
 /* A案：旧LP風（ゴシック・左寄せ・3枚を重ねて切り替え） */
 .fv-a .fv-slide{opacity:0}
@@ -146,16 +156,19 @@ p{margin:0 0 18px}
 .fv-a .fv-list strong{color:#ffffff;border-bottom:2px solid #19c69e}
 /* B案：ライトワード風（明朝・あたたかい色を重ねる・白い枠線のボタン） */
 .fv-b{font-family:"Noto Serif JP","Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif}
-.fv-b{--ph:clamp(70px,calc(100svh - 580px),230px)}
-.fv-b .fv-shade{background:linear-gradient(180deg,rgba(58,36,22,0) 0,rgba(58,36,22,0) calc(var(--ph) - 80px),rgba(58,36,22,.72) var(--ph),rgba(58,36,22,.74) 100%)}
+.fv-b{--ph:clamp(56px,calc(100svh - 720px),90px)}
+.fv-b .fv-shade{background:linear-gradient(180deg,rgba(58,36,22,0) 0,rgba(58,36,22,0) calc(var(--ph) - 46px),rgba(58,36,22,.72) var(--ph),rgba(58,36,22,.74) 100%)}
 .fv-b .fv-in{padding-top:var(--ph)}
-@media (max-width:360px){.fv-b .fv-catch{font-size:24px}}
+@media (max-width:360px){.fv.fv-a .fv-catch{font-size:25px;letter-spacing:.01em}.fv.fv-b .fv-catch{font-size:24px;letter-spacing:.02em}}
 .fv-b .fv-in{text-shadow:0 0 1px rgba(40,24,14,.9),0 1px 3px rgba(40,24,14,.6)}
 .fv-b .tag{text-shadow:none}
 .fv-b .fv-eyebrow{border:0;border-top:1px solid rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.85);border-radius:0;padding:4px 2px;letter-spacing:.12em;font-weight:600}
 .fv-b .fv-catch{font-family:"Noto Serif JP","Shippori Mincho",serif;font-weight:600;font-size:28px;letter-spacing:.08em;line-height:1.6}
 .fv-b .fv-lead{font-weight:600}
-.fv-b .fv-list li,.fv-b .fv-closing{font-family:var(--font)}
+.fv-b .fv-list li,.fv-b .fv-closing,.fv-b .fv-checks li{font-family:var(--font)}
+.fv-b .fv-ck{background:#fbf6ef;color:#5a3520}
+.fv-b .fv-free{background:#fbf6ef;color:#3a2416;border-left-color:#8a5a3b;border-radius:2px;font-family:"Noto Serif JP","Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;box-shadow:none}
+.fv-b .fv-free-t strong{color:#5a3520;font-weight:600;letter-spacing:.04em}
 .fv-b .ctas{gap:12px}
 .fv-b .btn{border-radius:999px;font-family:var(--font);text-shadow:none}
 .fv-b .btn-tel{background:rgba(40,24,14,.35);border:2px solid #fff;box-shadow:none}
@@ -198,7 +211,12 @@ p{margin:0 0 18px}
 .foot-links.is-wrapped{flex-direction:column;align-items:center}
 .foot-links.is-wrapped > span + span::before{content:none}
 /* 特定商取引法に基づく表記 */
-.toku{padding:36px 0 48px}
+.toku{padding:48px 0 64px}
+/* 特商法のページ：中身が短くてもフッターを画面の下端に付ける */
+.toku-page{display:flex;flex-direction:column;min-height:100vh;min-height:100svh}
+.toku-page main{flex:1 0 auto}
+.toku-page main .toku{min-height:280px}
+.toku .toku-h1{margin-bottom:36px}
 .toku-h1{font-size:26px;line-height:1.5;margin:0 0 22px;font-weight:700}
 .toku-list{margin:0 0 26px;border-top:1px solid var(--border)}
 .toku-row{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid var(--border)}
@@ -236,6 +254,7 @@ p{margin:0 0 18px}
  .toku-head{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;padding:10px 0;border-bottom:2px solid var(--green)}
  .toku-head dt,.toku-head dd{color:var(--text);font-size:16px}
  .toku-h1{font-size:30px}
+ .toku{padding:72px 0 88px}
  .sec-access .map{height:100%;min-height:340px}
  .sec-99{padding:26px 0 30px}
  .cards .pic-wide{grid-column:1 / -1;aspect-ratio:16 / 7}
@@ -266,7 +285,7 @@ p{margin:0 0 18px}
 }
 </style>
 </head>
-<body>
+<body class="toku-page">
 <div class="kakunin" role="note"><div class="kakunin-in">
 <p class="kakunin-title">確認用の案です。札と灰色の番号は確認用の目印で、完成時には出ません。写真はすべて仮です。</p>
 <div class="kk-btns">
@@ -285,7 +304,7 @@ p{margin:0 0 18px}
 <button type="button" class="toggle" id="toggle-tags" aria-pressed="false">札を消す</button>
 </div>
 </div></div>
-<main><section class="sec toku"><div class="wrap"><h1 class="toku-h1">特定商取引法に基づく表記<span class="tag tag-sakusei">こちらで作成</span></h1><dl class="toku-list"><div class="toku-row toku-head"><dt>項目</dt><dd>内容</dd></div><div class="toku-row"><dt>店名</dt><dd>Scalp Care Salon SAMPLE</dd></div><div class="toku-row"><dt>事業者の正式な名前</dt><dd><span class="tag tag-yokakunin">要確認：正式な名前</span></dd></div><div class="toku-row"><dt>代表者</dt><dd><span class="tag tag-yokakunin">要確認：代表者</span></dd></div><div class="toku-row"><dt>所在地</dt><dd>東京都○○区○○0-00-00（<span class="nb"><span class="tag tag-yokakunin">要確認：建物名・お部屋番号</span>）</span></dd></div><div class="toku-row"><dt>電話番号</dt><dd><a href="#">03-0000-0000</a></dd></div><div class="toku-row"><dt>メールアドレス</dt><dd><span class="tag tag-yokakunin">要確認：メールアドレス</span></dd></div><div class="toku-row"><dt>料金</dt><dd>初回無料（先着5名・11月いっぱい<span class="nb"><span class="tag tag-kari">仮</span>）</span>。2回目以降：<span class="tag tag-yokakunin">要確認：2回目以降の料金</span></dd></div><div class="toku-row"><dt>支払い方法</dt><dd>クレジットカード（VISA／MasterCard／JCB／AMEX）・電子マネー・分割払い（<span class="nb"><span class="tag tag-yokakunin">要確認：現金・銀行振込</span>）</span></dd></div><div class="toku-row"><dt>キャンセル・中途解約・返金</dt><dd><span class="tag tag-yokakunin">要確認：キャンセル・中途解約・返金</span></dd></div></dl><p class="toku-back-wrap"><a class="toku-back" href="index.html">LPに戻る</a><span class="tag tag-sakusei">こちらで作成</span></p></div></section></main>
+<main><section class="sec toku"><div class="wrap"><h1 class="toku-h1">特定商取引法に基づく<span style="white-space:nowrap">表記</span><span class="tag tag-sakusei">こちらで作成</span></h1><p class="toku-back-wrap"><a class="toku-back" href="index.html">LPに戻る</a><span class="tag tag-sakusei">こちらで作成</span></p></div></section></main>
 <footer><section class="sec sec-99"><p class="anno">フッター（店舗情報）</p><div class="wrap"><p class="lead-b"><strong>Scalp Care Salon SAMPLE</strong><br>電話：<a href="#">03-0000-0000</a><br>LINE：<a href="#">https://lin.ee/XXXXXXX</a></p><div class="foot-links"><span><a href="tokushoho.html">特定商取引法に基づく表記</a><span class="tag tag-sakusei">こちらで作成</span></span><span><a href="index.html#apply">お問い合わせ</a><span class="tag tag-sakusei">こちらで作成</span></span></div><p class="copy">© 2026 Scalp Care Salon SAMPLE All Rights Reserved.<span class="tag tag-sakusei">こちらで作成</span></p></div></section></footer>
 
 <script>
